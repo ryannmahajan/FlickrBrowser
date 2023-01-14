@@ -2,7 +2,11 @@ package com.example.photogallery
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.widget.Toast
 import androidx.activity.compose.setContent
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuItemCompat
 import com.example.photogallery.ui.GalleryScreen
 
 class MainActivity : AppCompatActivity() {
@@ -13,5 +17,25 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+//
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        menuInflater.inflate(R.menu.main_menu, menu)
+//
+//        val searchViewItem = menu.findItem(R.id.search_bar)
+//        val searchView = MenuItemCompat.getActionView(searchViewItem) as SearchView
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//
+//            override fun onQueryTextSubmit(query: String): Boolean {
+//                Toast.makeText(this@MainActivity, query, Toast.LENGTH_SHORT).show()
+//                return true
+//            }
+//
+//            override fun onQueryTextChange(newText: String): Boolean {
+//                return false
+//            }
+//        })
+//        return super.onCreateOptionsMenu(menu)
+//    }
+
 
 }

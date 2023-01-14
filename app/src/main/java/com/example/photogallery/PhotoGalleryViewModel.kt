@@ -12,8 +12,12 @@ private const val TAG = "PhotoGalleryViewModel"
 
 class PhotoGalleryViewModel: ViewModel() {
     private val privateGalleryItems = MutableStateFlow(listOf<GalleryItem>())
-    val galleryItems: StateFlow<List<GalleryItem>>
+    val galleryItems
         get() = privateGalleryItems.asStateFlow()
+
+    private var privateSearchQuery = MutableStateFlow("")
+    val searchQuery
+        get() = privateSearchQuery.asStateFlow()
 
     private val photoRepository = PhotoRepository()
 
