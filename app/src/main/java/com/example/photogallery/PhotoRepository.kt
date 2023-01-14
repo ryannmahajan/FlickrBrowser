@@ -18,4 +18,7 @@ class PhotoRepository {
 
     suspend fun fetchPhotos(): List<GalleryItem> =
         flickrApi.fetchPhotos().photos.galleryItems
+
+    suspend fun searchPhotos(query: String): List<GalleryItem> =
+        flickrApi.searchPhotos(query).photos.galleryItems
 }

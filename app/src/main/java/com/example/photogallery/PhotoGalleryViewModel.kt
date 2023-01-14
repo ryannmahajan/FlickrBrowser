@@ -23,13 +23,24 @@ class PhotoGalleryViewModel: ViewModel() {
 
     init {
         viewModelScope.launch {
-            try {
-                val response = PhotoRepository().fetchPhotos()
-                Log.d(TAG, "Response received: $response")
-                privateGalleryItems.value = response
-            } catch (ex: Exception) {
-                Log.e(TAG, "Failed to fetch gallery items", ex)
-            }
+            fetchPhotos()
+        }
+    }
+
+    private suspend fun fetchPhotos(query: String? = null) {
+        try {
+            val response = query?.let { photoRepository.searchPhotos(it) } ?: photoRepository.fetchPhotos()
+            Log.d(TAG, "Response received: $response")
+            privateGalleryItems.value = response
+        } catch (ex: Exception) {
+            Log.e(TAG, "Failed to fetch gallery items", ex)
+        }
+    }
+
+    fun submitQuery(query:String) {
+        privateSearchQuery.value = query
+        viewModelScope.launch {
+            fetchPhotos(query)
         }
     }
 
