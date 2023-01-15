@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         val searchView = MenuItemCompat.getActionView(searchViewItem) as SearchView
 
         searchView.setQuery(viewModel.searchQuery.value, false)
+        //todo: add viewModel storing the focused and collapsed info as well
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String): Boolean {

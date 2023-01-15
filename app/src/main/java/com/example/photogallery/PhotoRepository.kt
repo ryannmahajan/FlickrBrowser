@@ -1,6 +1,8 @@
 package com.example.photogallery
 
 import com.example.photogallery.api.FlickrApi
+import com.example.photogallery.api.PhotoInterceptor
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
@@ -9,9 +11,14 @@ class PhotoRepository {
     val flickrApi: FlickrApi
 
     init {
+        val httpClientWithInterception = OkHttpClient.Builder()
+            .addInterceptor(PhotoInterceptor())
+            .build()
+
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://api.flickr.com/")
             .addConverterFactory(MoshiConverterFactory.create())
+            .client(httpClientWithInterception)
             .build()
         flickrApi = retrofit.create<FlickrApi>()
     }
