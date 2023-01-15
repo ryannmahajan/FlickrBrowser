@@ -8,7 +8,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
+import com.example.photogallery.ui.DetailScreen
 import com.example.photogallery.ui.GalleryScreen
+import com.example.photogallery.ui.NavHost
 
 class MainActivity : AppCompatActivity() {
     private val viewModel:PhotoGalleryViewModel by viewModels()
@@ -16,9 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            GalleryScreen(viewModel)
+            NavHost()
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
