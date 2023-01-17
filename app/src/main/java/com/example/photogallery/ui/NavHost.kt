@@ -2,6 +2,7 @@ package com.example.photogallery.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -24,6 +25,7 @@ fun NavHost(
         composable("gallery_screen") {
             GalleryScreen {
                 navController.navigate("detail_screen")
+
             }
         }
     }
