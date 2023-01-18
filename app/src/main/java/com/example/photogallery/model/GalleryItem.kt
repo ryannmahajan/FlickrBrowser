@@ -1,4 +1,4 @@
-package com.example.photogallery
+package com.example.photogallery.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

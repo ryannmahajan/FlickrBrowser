@@ -23,6 +23,7 @@ import com.example.photogallery.R
 @Preview
 @Composable
 fun DetailScreen() {
+    // todo: remove search button in this screen
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
